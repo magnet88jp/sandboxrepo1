@@ -1,0 +1,21 @@
+[% META title = 'TestCommand Edit' -%]
+[% SET path = '/testcommand' -%]
+
+[% PROCESS site/edit_upper -%]
+
+<form action="[% path -%]/[% model.id -%]" method="POST">
+<input type="hidden" name="x-tunneled-method" value="put" />
+<table>
+  <tr><th>id</th><td><label type="text" name="id">[% model.id -%]</label></td></tr>
+  <tr><th>test_case_id</th>
+    <td>[% ref_data = [ ];
+      ref_data.push(ref.id) FOREACH ref = model.test_case_id -%]
+      <input type="text" name="test_case_id" value="[% ref_data.join(',') -%]">
+    </td>
+  </tr>
+  <tr><th>command</th><td><input type="text" name="command" value="[% model.command -%]"></td></tr>
+  <tr><th>target</th><td><input type="text" name="target" value="[% model.target -%]"></td></tr>
+  <tr><th>value</th><td><input type="text" name="value" value="[% model.value -%]"></td></tr>
+</table>
+<input type="submit" value="送信">
+</form>

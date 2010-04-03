@@ -1,0 +1,26 @@
+[% # This is Comment. -%]
+
+[% META title = 'CaseCommandMap List' -%]
+
+[% PROCESS site/list_upper %]
+
+<table>
+  <tr><th>id</th><th>test_case_id</th><th>test_command_id</th><th>map_order</th><th>show</th><th>edit</th><th>delete</th></tr>
+[% WHILE ( data = model.next) -%]
+  <tr>
+    <td>[% data.id %]</td>
+    <td>[% data.test_case_id.id %]:[% data.test_case_id.name %]</td>
+    <td>[% data.test_command_id.id %]:[% data.test_command_id.command %]</td>
+    <td>[% data.map_order %]</td>
+    <td><a href="[% path -%]/[% data.id -%]">show</a></td>
+    <td><a href="[% path -%]/[% data.id -%]/edit">edit</a></td>
+    <td><a href="[% path -%]/[% data.id -%]/delete">delete</a></td>
+  </tr>
+[% END -%]
+</table>
+<form action="[% path %]/convert" method="GET">
+  <input type="button" value="変換">
+</form>
+
+[% PROCESS site/list_lower %]
+

@@ -1,0 +1,18 @@
+[% META title = 'TestCase Import' -%]
+
+[% PROCESS site/show_upper -%]
+
+Import
+
+<form action="[% path -%]/importdata" method="post" enctype="multipart/form-data">
+  <label for="filename">file</label>
+  <table>
+  <tr><th>name</th><td><input type="text" name="name"></td></tr>
+  <tr><th>filename</th><td><input type="file" name="filename" id="filename"></td></tr>
+  <tr><th>tags</th><td><input type="text" name="tags"></td></tr>
+  <tr><th>explanation</th><td><input type="text" name="explanation"></td></tr>
+  </table>
+  <p>
+    <input type="submit" name="submit" value="submit">
+  </p>
+</form>

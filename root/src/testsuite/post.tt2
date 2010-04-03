@@ -1,0 +1,8 @@
+[% META title = 'TestSuite New' -%]
+
+<form action="[% path -%]" method="POST">
+<table>
+<tr><th>name</th><td><input type="text" name="name" /></td></tr>
+</table>
+<input type="submit" value="編集">
+</form>

@@ -1,0 +1,10 @@
+[% META title = 'SuiteCaseMap New' -%]
+
+<form action="[% path -%]" method="POST">
+<table>
+<tr><th>test_suite_id</th><td><input type="text" name="test_suite_id" /></td></tr>
+<tr><th>test_case_id</th><td><input type="text" name="test_case_id" /></td></tr>
+<tr><th>map_order</th><td><input type="text" name="map_order" /></td></tr>
+</table>
+<input type="submit" value="編集">
+</form>

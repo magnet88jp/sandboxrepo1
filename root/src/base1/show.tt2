@@ -1,0 +1,20 @@
+[% META title = 'TestCommand Show' -%]
+[% SET path = '/testcommand' -%]
+
+[% PROCESS site/show_upper %]
+
+<table>
+<tr><th>id</th><td>[% model.id %]</td></tr>
+<tr><th>testcase_id</th>
+  <td>[% ref_data = [ ];
+    ref_data.push(ref.id) FOREACH ref = model.test_case_id %]([% ref_data.size %])[% ref_data.join(',') -%]
+  </td>
+</tr>
+<tr><th>command</th><td>[% model.command -%]</td></tr>
+<tr><th>target</th><td>[% model.target -%]</td></tr>
+<tr><th>value</th><td>[% model.value -%]</td></tr>
+</table>
+<form action="[% path -%]/[% model.id -%]" method="POST">
+  <input type="submit" value="削除" />
+  <input type="hidden" name="x-tunneled-method" value="delete" />
+</form>

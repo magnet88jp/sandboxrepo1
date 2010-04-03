@@ -1,0 +1,3 @@
+<a href="[% path -%]/new">new</a>
+[% SET pager = model.pager -%]
+<div class="page-status"> [% pager.total_entries %] 件中 [% pager.first %] - [% pager.last %] 件目</div>

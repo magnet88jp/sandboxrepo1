@@ -1,0 +1,15 @@
+<div class="page-navi">
+<a href="[% c.req.uri_with(page => pager.first_page) %]">&laquo; First</a>
+[% IF pager.previous_page -%]<a href="[% c.req.uri_with(page => pager.previous_page) -%]">&lsaquo; Prev</a>
+[% ELSE -%]&lsaquo; Prev
+[% END -%]
+[% FOREACH page IN pager.pages_in_navigation -%]
+  [% IF page == pager.current_page %][% page %]&nbsp;
+  [% ELSE -%]<a href="[% c.req.uri_with(page => page) %]">[% page %]&nbsp;</a>
+  [% END -%]
+[% END -%]
+[% IF pager.next_page -%]<a href="[% c.req.uri_with(page => pager.next_page) %]">Next &rsaquo;</a>
+[% ELSE -%]Next &rsaquo;
+[% END -%]
+<a href="[% c.req.uri_with(page => pager.last_page) %]">Last &raquo;</a>
+</div>

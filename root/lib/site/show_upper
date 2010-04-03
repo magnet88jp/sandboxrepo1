@@ -1,0 +1,2 @@
+<a href="[% path -%]">list</a>
+<a href="[% path -%]/[% model.id -%]/edit">edit</a>

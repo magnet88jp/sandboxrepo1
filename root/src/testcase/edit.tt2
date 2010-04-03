@@ -1,0 +1,26 @@
+[% META title = 'TestCase Edit' -%]
+
+[% PROCESS site/edit_upper -%]
+
+<form action="[% path -%]/[% model.id -%]" method="POST">
+<input type="hidden" name="x-tunneled-method" value="put" />
+<table>
+  <tr><th>id</th><td><label type="text" name="id">[% model.id -%]</label></td></tr>
+  <tr><th>name</th><td><input type="text" name="name" value="[% model.name -%]"></td></tr>
+  <tr><th>filename</th><td><input type="text" name="filename" value="[% model.filename -%]"></td></tr>
+  <tr><th>tags</th><td><input type="text" name="tags" value="[% model.tags -%]"></td></tr>
+  <tr><th>explanation</th><td><input type="text" name="explanation" value="[% model.explanation -%]"></td></tr>
+</table>
+<table>
+<tr><th>testcommand</th><th>id</th><th>command</th><th>target</th><th>value</th></tr>
+[% FOREACH data = model.case_command_maps %]
+<tr>
+  <td>[% data.map_order %]</td>
+  <td>[% data.test_command_id.command %]</td>
+  <td>[% data.test_command_id.target %]</td>
+  <td>[% data.test_command_id.value %]</td>
+</tr>
+[% END %]
+</table>
+<input type="submit" value="送信">
+</form>

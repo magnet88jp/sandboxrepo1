@@ -1,0 +1,9 @@
+[% USE CGI %]
+[% CGI.start_form %]
+[% CGI.checkbox_group(name => 'colors',
+values => [ 'red' 'green' 'blue' ]).join
+%]
+[% CGI.popup_menu(name => 'items',
+values => [ 'foo' 'bar' 'baz' ])
+%]
+[% CGI.end_form.join %]

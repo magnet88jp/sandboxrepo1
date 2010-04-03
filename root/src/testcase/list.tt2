@@ -1,0 +1,32 @@
+[% # This is Comment. -%]
+
+[% META title = 'Testcase List' -%]
+
+[% PROCESS site/list_upper %]
+
+<form action="[% path %]/search" method="POST">
+  <table>
+    <tr><td>tags</td><td><input type="text" name="tags" value="[% search_cnd.tags %]"></td><td>explanation</td><td><input type="text" name="explanation" value="[% search_cnd.explanation %]"></td></tr>
+  </table>
+  <input type="submit" name="submit">
+</form>
+<p><a href="[% path %]/import">import</a></p>
+<table>
+  <tr><th>id</th><th>name</th><th>filename</th><th>tags</th><th>explanation</th><th>num</th><th>show</th><th>edit</th><th>delete</th></tr>
+[% WHILE (data = model.next) -%]
+  <tr>
+    <td>[% data.id -%]</td>
+    <td>[% data.name -%]</td>
+    <td>[% data.filename -%]</td>
+    <td>[% data.tags -%]</td>
+    <td>[% data.explanation -%]</td>
+    <td>[% tt_tc = [ ]; tt_tc.push(tc) FOREACH tc IN data.case_command_maps %] [% tt_tc.size %]</td>
+    <td><a href="[% path -%]/[% data.id -%]">show</a></td>
+    <td><a href="[% path -%]/[% data.id -%]/edit">edit</a></td>
+    <td><a href="[% path -%]/[% data.id -%]/delete">delete</a></td>
+  </tr>
+[% END -%]
+</table>
+
+[% PROCESS site/list_lower %]
+

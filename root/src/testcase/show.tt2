@@ -1,0 +1,35 @@
+[% META title = 'TestCase Show' -%]
+
+[% PROCESS site/show_upper -%]
+
+<table>
+<tr><th>id</th><td>[% model.id %]</td></tr>
+<tr><th>name</th><td>[% model.name %]</td></tr>
+<tr><th>filename</th><td>[% model.filename %]</td></tr>
+<tr><th>tags</th><td>[% model.tags %]</td></tr>
+<tr><th>explanation</th><td>[% model.explanation %]</td></tr>
+</table>
+<form action="[% path -%]/[% model.id -%]/casecommandmap" method="GET">
+  <input type="submit" value="TestCommand編集" />
+</form>
+<table>
+<tr><th>testcommand</th><th>command</th><th>target</th><th>value</th></tr>
+[% FOREACH data = model.case_command_maps %]
+<tr>
+  <td>[% data.map_order %]</td>
+  <td>[% data.test_command_id.command %]</td>
+  <td>[% data.test_command_id.target %]</td>
+  <td>[% data.test_command_id.value %]</td>
+</tr>
+[% END %]
+</table>
+<form action="[% path -%]/[% model.id -%]/convert" method="GET">
+  <input type="submit" value="変換" />
+</form>
+<form action="[% path -%]/[% model.id -%]/export" method="GET">
+  <input type="submit" value="エクスポート" />
+</form>
+<form action="[% path -%]/[% model.id -%]" method="POST">
+  <input type="submit" value="削除" />
+  <input type="hidden" name="x-tunneled-method" value="delete" />
+</form>

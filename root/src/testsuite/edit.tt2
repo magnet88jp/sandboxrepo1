@@ -1,0 +1,22 @@
+[% META title = 'TestSuite Edit' -%]
+
+[% PROCESS site/edit_upper -%]
+
+<form action="[% path -%]/[% model.id -%]" method="POST">
+<input type="hidden" name="x-tunneled-method" value="put" />
+<table>
+  <tr><th>id</th><td><label type="text" name="id">[% model.id -%]</label></td></tr>
+  <tr><th>name</th><td><input type="text" name="name" value="[% model.name -%]"></td></tr>
+</table>
+<table>
+<tr><th>#</th><th>id</th><th>name</th></tr>
+[% FOREACH data = model.suite_case_maps %]
+<tr>
+  <td>[% data.map_order %]</td>
+  <td>[% data.test_case_id.id %]</td>
+  <td>[% data.test_case_id.name %]</td>
+</tr>
+[% END %]
+</table>
+<input type="submit" value="送信">
+</form>

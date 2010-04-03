@@ -1,0 +1,12 @@
+[% META title = 'TestCommand New' -%]
+[% SET path = '/testcommand' -%]
+
+<form action="[% path -%]" method="POST">
+<table>
+  <tr><th>test_case_id</th><td><input type="text" name="test_case_id" /></td></tr>
+  <tr><th>command</th><td><input type="text" name="command" /></td></tr>
+  <tr><th>target</th><td><input type="text" name="target" /></td></tr>
+  <tr><th>value</th><td><input type="text" name="value" /></td></tr>
+</table>
+<input type="submit" value="作成">
+</form>

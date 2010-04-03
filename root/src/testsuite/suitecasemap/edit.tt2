@@ -1,0 +1,14 @@
+[% META title = 'TestCase Edit' -%]
+
+[% PROCESS site/edit_upper -%]
+
+<form action="[% path -%]/[% model.id -%]" method="POST">
+<input type="hidden" name="x-tunneled-method" value="put" />
+<table>
+  <tr><th>id</th><td><label type="text" name="id">[% model.id -%]</label></td></tr>
+  <tr><th>test_suite_id</th><td><label type="text" name="test_suite_id">[% model.test_suite_id.id -%]</label></td></tr>
+  <tr><th>test_case_id</th><td><input type="text" name="test_case_id" value="[% model.test_case_id.id -%]"></td></tr>
+  <tr><th>map_order</th><td><input type="text" name="map_order" value="[% model.map_order -%]"></td></tr>
+</table>
+<input type="submit" value="送信">
+</form>
